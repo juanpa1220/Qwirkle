@@ -45,25 +45,109 @@
 
 /*---------------------------------------------------------------------------*/
 .red {
+    -fx-background-color: linear-gradient(#f58c8c, #ff0505),
+    radial-gradient(center 50% -40%, radius 200%, #ae5959 45%, #a70101 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
 
+    -fx-effect: dropshadow(three-pass-box, rgba(57, 3, 3, 0.4), 5, 0.0, 0, 1);
+    -fx-text-fill: #6e1d1d;
 }
+
+.red:hover {
+    -fx-background-color: linear-gradient(#ae5959, #a70101),
+    radial-gradient(center 50% -40%, radius 200%, #f58c8c 45%, #ff0505 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
+
+    -fx-effect: dropshadow(three-pass-box, rgba(57, 3, 3, 0.4), 5, 0.0, 0, 1);
+    -fx-text-fill: #6e1d1d;
+}
+
 
 /*---------------------------------------------------------------------------*/
 .yellow {
+    -fx-background-color: linear-gradient(#f6d97e, #fabd02),
+    radial-gradient(center 50% -40%, radius 200%, #f7fd80 45%, #f5d21f 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
 
+    -fx-effect: dropshadow(three-pass-box, rgb(212, 203, 109), 5, 0.0, 0, 1);
+    -fx-text-fill: #474200;
+}
+
+.yellow:hover {
+    -fx-background-color: linear-gradient(#ae9258, #ac7c02),
+    radial-gradient(center 50% -40%, radius 200%, #f6d97e 45%, #fabd02 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
+
+    -fx-effect: dropshadow(three-pass-box, rgb(212, 203, 109), 5, 0.0, 0, 1);
+    -fx-text-fill: #474200;
 }
 
 /*---------------------------------------------------------------------------*/
 .purple {
+    -fx-background-color: linear-gradient(#9e7ef6, #5902fa),
+    radial-gradient(center 50% -40%, radius 200%, #b080fd 45%, #581ff5 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
 
+    -fx-effect: dropshadow(three-pass-box, rgb(131, 109, 212), 5, 0.0, 0, 1);
+    -fx-text-fill: #050047;
+
+}
+
+.purple:hover {
+    -fx-background-color: linear-gradient(#b080fd, #581ff5),
+    radial-gradient(center 50% -40%, radius 200%, #9e7ef6 45%, #5902fa 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
+
+    -fx-effect: dropshadow(three-pass-box, rgb(131, 109, 212), 5, 0.0, 0, 1);
+    -fx-text-fill: #050047;
 }
 
 /*---------------------------------------------------------------------------*/
 .blue {
+    -fx-background-color: linear-gradient(#7e98f6, #0238fa),
+    radial-gradient(center 50% -40%, radius 200%, #80cbfd 45%, #1f98f5 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
 
+    -fx-effect: dropshadow(three-pass-box, rgb(109, 135, 212), 5, 0.0, 0, 1);
+    -fx-text-fill: #001247;
+}
+
+.blue:hover {
+    -fx-background-color: linear-gradient(#80cbfd, #1f98f5),
+    radial-gradient(center 50% -40%, radius 200%, #7e98f6 45%, #0238fa 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
+
+    -fx-effect: dropshadow(three-pass-box, rgb(107, 134, 210), 5, 0.0, 0, 1);
+    -fx-text-fill: #001247;
 }
 
 /*---------------------------------------------------------------------------*/
 .orange {
+    -fx-background-color: linear-gradient(#f6b27e, #fa8202),
+    radial-gradient(center 50% -40%, radius 200%, #fdcf80 45%, #f59f1f 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
+
+    -fx-effect: dropshadow(three-pass-box, rgb(212, 162, 109), 5, 0.0, 0, 1);
+    -fx-text-fill: #472700;
+
+}
+
+.orange:hover {
+    -fx-background-color: linear-gradient(#fdcf80, #f59f1f),
+    radial-gradient(center 50% -40%, radius 200%, #f6b27e 45%, #fa8202 50%);
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 1;
+
+    -fx-effect: dropshadow(three-pass-box, rgb(212, 162, 109), 5, 0.0, 0, 1);
+    -fx-text-fill: #472700;
 
 }

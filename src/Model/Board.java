@@ -1,5 +1,6 @@
 package Model;
 
+import Control.GameWindowController;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ public class Board {
     private final String[] shapes = {"▲", "◆", "■", "●", "★", "❈"};
     private final String[] colors = {"green", "red", "yellow", "purple", "blue", "orange"};
     private int seletedTile;
+    private GameWindowController gameWindowController;
 
     public Board(GridPane gridPane) {
         this.gridPane = gridPane;
@@ -52,12 +54,15 @@ public class Board {
     }
 
     public void seletedTile(ActionEvent actionEvent) {
-        final Node source = (Node) actionEvent.getSource();
-        String id = source.getId();
-        this.seletedTile = Integer.getInteger(id);
+        final Button seletedButton = (Button) actionEvent.getSource();
+        seletedButton.setText(GameWindowController.selectedShape);
+        seletedButton.getStyleClass().add(GameWindowController.selectedColor);
+
+        GameWindowController.selectedShape = "";
+        GameWindowController.selectedColor = "";
     }
 
-    public void getSelectedTile(){
+    public void getSelectedTile() {
 
     }
 

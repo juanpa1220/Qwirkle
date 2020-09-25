@@ -9,6 +9,7 @@ public class Tile {
     private int row;
     private int col;
     private int index;
+    private boolean busy;
 
 
     public Tile(Button button, int row, int col, int index) {
@@ -20,7 +21,15 @@ public class Tile {
         this.index = index;
     }
 
+    public Tile(String color, String shape) {
+        this.button = null;
+        this.color = color;
+        this.shape = shape;
+        this.busy = false;
+    }
+
     public void printTile() {
+        System.out.println(color + ", " + shape);
 
     }
 
