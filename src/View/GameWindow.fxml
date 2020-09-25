@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="760.0" maxWidth="760.0" minHeight="760.0" minWidth="760.0" prefHeight="760.0" prefWidth="760.0"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Control.GameWindowController">
+    <center>
+        <GridPane fx:id="gridPane" focusTraversable="true" maxHeight="560.0" maxWidth="560.0" minHeight="560.0"
+                  minWidth="560.0" prefHeight="560.0" prefWidth="560.0" style="-fx-background-color: #48686d;"
+                  BorderPane.alignment="CENTER" stylesheets="@StyledButtons.css">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox maxHeight="100.0" maxWidth="480.0" minHeight="100.0" minWidth="480.0" prefHeight="100.0" prefWidth="480.0"
+              BorderPane.alignment="CENTER">
+            <children>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0" stylesheets="@stylesheet.css">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets top="20.0"/>
+                    </HBox.margin>
+                </Button>
+
+            </children>
+            <BorderPane.margin>
+                <Insets left="100.0" right="100.0"/>
+            </BorderPane.margin>
+            <padding>
+                <Insets top="5.0"/>
+            </padding>
+        </HBox>
+    </bottom>
+    <left>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Inteligente" textAlignment="CENTER">
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font name="Times New Roman" size="18.0"/>
+                    </font>
+                </Label>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0" top="10.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+    <right>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Básico" textAlignment="CENTER">
+                    <VBox.margin>
+                        <Insets left="25.0" right="25.0" top="10.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font name="Times New Roman" size="18.0"/>
+                    </font>
+                </Label>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0" top="10.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
+                        prefHeight="40.0" prefWidth="40.0">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="30.0"/>
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+    </right>
+    <top>
+        <VBox maxHeight="100.0" maxWidth="560.0" minHeight="100.0" minWidth="560.0" prefHeight="100.0" prefWidth="560.0"
+              BorderPane.alignment="CENTER">
+            <children>
+                <Label contentDisplay="CENTER" text="Qwirkle">
+                    <font>
+                        <Font name="Times New Roman" size="48.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="200.0" right="200.0"/>
+                    </VBox.margin>
+                </Label>
+                <HBox maxHeight="30.0" maxWidth="560.0" minHeight="30.0" minWidth="560.0" prefHeight="30.0"
+                      prefWidth="560.0">
+                    <children>
+                        <Button id="windows7" mnemonicParsing="false" onAction="#newGame" prefHeight="30.0"
+                                stylesheets="@StyledButtons.css" text="Nuevo Juego">
+                            <HBox.margin>
+                                <Insets right="40.0"/>
+                            </HBox.margin>
+                        </Button>
+                        <Label prefHeight="30.0" text="Básico: ">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" text="0">
+                            <HBox.margin>
+                                <Insets right="35.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" text="Inteligente:">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" text="0">
+                            <HBox.margin>
+                                <Insets right="35.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" text="Humano: ">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Label>
+                        <Label prefHeight="30.0" text="0">
+                            <HBox.margin>
+                                <Insets right="40.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <Button id="windows7" mnemonicParsing="false" prefHeight="30.0" stylesheets="@stylesheet.css"
+                                text="Salir"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+</BorderPane>
