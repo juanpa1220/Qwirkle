@@ -11,7 +11,7 @@
     <center>
         <GridPane fx:id="gridPane" focusTraversable="true" maxHeight="560.0" maxWidth="560.0" minHeight="560.0"
                   minWidth="560.0" prefHeight="560.0" prefWidth="560.0" style="-fx-background-color: #48686d;"
-                  BorderPane.alignment="CENTER" stylesheets="@StyledButtons.css">
+                  stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
@@ -54,26 +54,26 @@
         <HBox maxHeight="100.0" maxWidth="480.0" minHeight="100.0" minWidth="480.0" prefHeight="100.0" prefWidth="480.0"
               BorderPane.alignment="CENTER">
             <children>
-                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
-                        prefHeight="40.0" prefWidth="40.0" stylesheets="@stylesheet.css">
+                <Button fx:id="1" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
+                        mnemonicParsing="false" onAction="#test" prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="2" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
+                        mnemonicParsing="false" onAction="#test" prefHeight="40.0" prefWidth="40.0">
+                    <HBox.margin>
+                        <Insets right="20.0" top="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="3" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
+                        mnemonicParsing="false" onAction="#test" prefHeight="40.0" prefWidth="40.0">
                     <HBox.margin>
                         <Insets right="20.0" top="20.0"/>
                     </HBox.margin>
                 </Button>
                 <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
-                        prefHeight="40.0" prefWidth="40.0">
-                    <HBox.margin>
-                        <Insets right="20.0" top="20.0"/>
-                    </HBox.margin>
-                </Button>
-                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
-                        prefHeight="40.0" prefWidth="40.0">
-                    <HBox.margin>
-                        <Insets right="20.0" top="20.0"/>
-                    </HBox.margin>
-                </Button>
-                <Button maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false"
-                        prefHeight="40.0" prefWidth="40.0">
+                        onAction="#test" prefHeight="40.0" prefWidth="40.0">
                     <HBox.margin>
                         <Insets right="20.0" top="20.0"/>
                     </HBox.margin>
