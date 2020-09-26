@@ -257,7 +257,7 @@
                                 <Insets right="40.0"/>
                             </HBox.margin>
                         </Label>
-                        <Button id="windows7" mnemonicParsing="false" prefHeight="30.0" stylesheets="@stylesheet.css"
+                        <Button id="windows7" mnemonicParsing="false" prefHeight="30.0" stylesheets="@StyledButtons.css"
                                 text="Salir"/>
                     </children>
                     <VBox.margin>

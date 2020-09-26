@@ -1,5 +1,6 @@
 package Control;
 
+import Model.BasicSolver;
 import Model.Board;
 import Model.Tile;
 import javafx.event.ActionEvent;
@@ -20,21 +21,24 @@ public class GameWindowController {
     public Button tile6;
     private final ArrayList<Tile> humanTiles = new ArrayList<Tile>();
     private final ArrayList<Tile> bag = new ArrayList<Tile>();
-    private GameWindowController gameWindowController;
-
+    private Board board;
+    private BasicSolver basicSolver;
     private final String[] shapes = {"▲", "◆", "■", "●", "★", "❈"};
     private final String[] colors = {"green", "red", "yellow", "purple", "blue", "orange"};
-
     public static String selectedColor;
     public static String selectedShape;
 
-    public GameWindowController() {
-    }
-
     public void newGame(ActionEvent actionEvent) {
-        new Board(gridPane).newBoard();
+        this.board = new Board(gridPane);
+        this.board.newBoard();
         this.setUpBag();
         this.setUpHumanTiles();
+
+//        this.basicSolver = new BasicSolver(this.board);
+//        for (Tile tile : this.basicSolver.getAdjacents(board.getTile(2))) {
+//            System.out.println(tile.getCol() + ", " + tile.getRow());
+//        }
+
     }
 
     private void setUpBag() {
@@ -49,7 +53,7 @@ public class GameWindowController {
 
     private void setUpHumanTiles() {
         for (int i = 0; i < 6; i++) {
-            int rdTile = new Random().nextInt(108);
+            int rdTile = new Random().nextInt(this.bag.size());
             this.humanTiles.add(this.bag.get(rdTile));
             this.bag.remove(rdTile);
         }
@@ -91,6 +95,13 @@ public class GameWindowController {
             selectedColor = humanTiles.get(5).getColor();
             selectedShape = humanTiles.get(5).getShape();
         }
+
+
+        this.basicSolver = new BasicSolver(this.board);
+        for (Tile tile : this.basicSolver.getPossibleTiles()) {
+            System.out.println(tile.getCol() + ", " + tile.getRow());
+        }
+        System.out.println("--------------------------");
 
     }
 }

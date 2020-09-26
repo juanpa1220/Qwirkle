@@ -28,17 +28,15 @@ public class Tile {
         this.busy = false;
     }
 
-    public void printTile() {
-        System.out.println(color + ", " + shape);
-
-    }
-
     public String getColor() {
         return color;
     }
 
     public void setColor(String color) {
         this.color = color;
+        if (this.button != null) {
+            this.button.getStyleClass().add(color);
+        }
     }
 
     public String getShape() {
@@ -47,5 +45,28 @@ public class Tile {
 
     public void setShape(String shape) {
         this.shape = shape;
+        if (this.button != null) {
+            this.button.setText(shape);
+        }
+    }
+
+    public boolean isBusy() {
+        return busy;
+    }
+
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public int getIndex() {
+        return index;
     }
 }
