@@ -19,8 +19,8 @@ public class GameWindowController {
     public Button tile4;
     public Button tile5;
     public Button tile6;
-    private final ArrayList<Tile> humanTiles = new ArrayList<Tile>();
-    private final ArrayList<Tile> bag = new ArrayList<Tile>();
+    private final ArrayList<Tile> humanTiles = new ArrayList<>();
+    private final ArrayList<Tile> bag = new ArrayList<>();
     private Board board;
     private BasicSolver basicSolver;
     private final String[] shapes = {"▲", "◆", "■", "●", "★", "❈"};
@@ -97,11 +97,19 @@ public class GameWindowController {
         }
 
 
-        this.basicSolver = new BasicSolver(this.board);
-        for (Tile tile : this.basicSolver.getPossibleTiles()) {
-            System.out.println(tile.getCol() + ", " + tile.getRow());
-        }
-        System.out.println("--------------------------");
+        // test
+//        this.basicSolver = new BasicSolver(this.board);
+//        for (Tile tile : this.basicSolver.getPossiblePositions()) {
+//            System.out.println(tile.getCol() + ", " + tile.getRow());
+//        }
+
+//        this.basicSolver = new BasicSolver(this.board);
+//        for (Tile tile : this.basicSolver.getPossiblePositions(new Tile("red", "●"))) {
+//            System.out.println(tile.getCol() + ", " + tile.getRow());
+//        }
+
+//        System.out.println(this.basicSolver.isCompatible(new Tile("red", "●")));
+//        System.out.println("--------------------------");
 
     }
 }

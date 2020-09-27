@@ -11,11 +11,12 @@ import java.util.Random;
 
 public class Board {
     private final ArrayList<Tile> board = new ArrayList<>();
-    //    private final Tile[] board = new Tile[256];
     private final GridPane gridPane;
-    private final String[] shapes = {"▲", "◆", "■", "●", "★", "❈"};
-    private final String[] colors = {"green", "red", "yellow", "purple", "blue", "orange"};
-    private int seletedTile;
+
+    //    private final Tile[] board = new Tile[256];
+//    private final String[] shapes = {"▲", "◆", "■", "●", "★", "❈"};
+//    private final String[] colors = {"green", "red", "yellow", "purple", "blue", "orange"};
+//    private int seletedTile;
 
     public Board(GridPane gridPane) {
         this.gridPane = gridPane;
@@ -28,8 +29,8 @@ public class Board {
             for (int row = 0; row < 16; row++) {
                 Button temButton = new Button();
 
-                int rdShape = new Random().nextInt(6);
-                int rdColor = new Random().nextInt(6);
+//                int rdShape = new Random().nextInt(6);
+//                int rdColor = new Random().nextInt(6);
 
                 temButton.setMaxHeight(35);
                 temButton.setMinHeight(35);
@@ -37,9 +38,7 @@ public class Board {
                 temButton.setMaxWidth(35);
                 temButton.setMinWidth(35);
                 temButton.setPrefWidth(35);
-                temButton.setStyle(
-                        "-fx-background-radius: 0;"
-                );
+                temButton.setStyle("-fx-background-radius: 0;");
                 temButton.setId(String.valueOf(index));
                 temButton.setOnAction(this::seletedTile);
 
@@ -51,7 +50,6 @@ public class Board {
                 index++;
             }
         }
-
     }
 
     public void seletedTile(ActionEvent actionEvent) {
@@ -75,7 +73,6 @@ public class Board {
     public Tile getTile(int index) {
         return board.get(index);
     }
-
     public ArrayList<Tile> getBoard() {
         return board;
     }
