@@ -269,10 +269,7 @@ public class GameWindowController {
 
             BasicSolver basicSolver = new BasicSolver(this.board);
 //            basicSolver.Solver(this.basicPlayerTiles);
-            basicSolver.permute(this.basicPlayerTiles, 0);
-
-
-//            basicSolver.permute(this.basicPlayerTiles, new ArrayList<>(), 0);
+            basicSolver.permute(this.basicPlayerTiles);
 
             this.turn++;
         } else if (this.turn == 2) {

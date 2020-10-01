@@ -9,17 +9,24 @@ public class BasicSolver {
         this.board = board;
     }
 
+    public void permute(ArrayList<Tile> hand){
+        this.permuteAux(hand, 0, this.getPossiblePositions(), new ArrayList<>());
+    }
 
-    public void permute(ArrayList<Tile> hand, int k) {
+    public void permuteAux(ArrayList<Tile> hand, int k, ArrayList<Tile> possiblePositions, ArrayList<Tile> solutions) {
         for (int i = k; i < hand.size(); i++) {
+            if (isCompatible(hand.get(i), this.board.getBoard()) && !solutions.contains(hand.get(i))) {
+                solutions.add(hand.get(i));
+            }
 
             java.util.Collections.swap(hand, i, k);
-            permute(hand, k + 1);
+            permuteAux(hand, k + 1, possiblePositions, solutions);
             java.util.Collections.swap(hand, k, i);
-
         }
+
         if (k == hand.size() - 1) {
-            System.out.println(java.util.Arrays.toString(hand.toArray()));
+            System.out.println("hand: " + java.util.Arrays.toString(hand.toArray()));
+            System.out.println("solution: " + java.util.Arrays.toString(solutions.toArray()) + "\n");
         }
     }
 
