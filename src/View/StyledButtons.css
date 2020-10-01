@@ -8,6 +8,8 @@
     -fx-padding: 3 30 3 30;
     -fx-text-fill: black;
     -fx-font-size: 14px;
+    -fx-alignment: center;
+
 }
 
 #windows7:hover {
@@ -19,6 +21,7 @@
     -fx-padding: 3 30 3 30;
     -fx-text-fill: black;
     -fx-font-size: 14px;
+    -fx-alignment: center;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -31,6 +34,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 5, 0.0, 0, 1);
     -fx-text-fill: #395306;
+    -fx-alignment: center;
 }
 
 .green:hover {
@@ -41,6 +45,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 5, 0.0, 0, 1);
     -fx-text-fill: #395306;
+    -fx-alignment: center;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -52,6 +57,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgba(57, 3, 3, 0.4), 5, 0.0, 0, 1);
     -fx-text-fill: #6e1d1d;
+    -fx-alignment: center;
 }
 
 .red:hover {
@@ -62,6 +68,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgba(57, 3, 3, 0.4), 5, 0.0, 0, 1);
     -fx-text-fill: #6e1d1d;
+    -fx-alignment: center;
 }
 
 
@@ -74,6 +81,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(212, 203, 109), 5, 0.0, 0, 1);
     -fx-text-fill: #474200;
+    -fx-alignment: center;
 }
 
 .yellow:hover {
@@ -84,6 +92,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(212, 203, 109), 5, 0.0, 0, 1);
     -fx-text-fill: #474200;
+    -fx-alignment: center;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -95,7 +104,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(131, 109, 212), 5, 0.0, 0, 1);
     -fx-text-fill: #050047;
-
+    -fx-alignment: center;
 }
 
 .purple:hover {
@@ -106,6 +115,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(131, 109, 212), 5, 0.0, 0, 1);
     -fx-text-fill: #050047;
+    -fx-alignment: center;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -117,6 +127,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(109, 135, 212), 5, 0.0, 0, 1);
     -fx-text-fill: #001247;
+    -fx-alignment: center;
 }
 
 .blue:hover {
@@ -127,6 +138,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(107, 134, 210), 5, 0.0, 0, 1);
     -fx-text-fill: #001247;
+    -fx-alignment: center;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -138,7 +150,7 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(212, 162, 109), 5, 0.0, 0, 1);
     -fx-text-fill: #472700;
-
+    -fx-alignment: center;
 }
 
 .orange:hover {
@@ -149,5 +161,41 @@
 
     -fx-effect: dropshadow(three-pass-box, rgb(212, 162, 109), 5, 0.0, 0, 1);
     -fx-text-fill: #472700;
-
+    -fx-alignment: center;
 }
+
+
+
+
+
+
+
+/*---------------------------------------------------------------------------*/
+#play {
+    -fx-background-color: linear-gradient(#ffd65b, #e68400),
+    linear-gradient(#ffef84, #f2ba44),
+    linear-gradient(#ffea6a, #efaa22),
+    linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+    linear-gradient(from 0% 0% to 15% 50%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0, 1, 2, 3, 0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+
+#play:hover {
+    -fx-background-color: linear-gradient(#e68400, #ffd65b),
+    linear-gradient(#f2ba44, #ffef84),
+    linear-gradient(#efaa22, #ffea6a),
+    linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+    linear-gradient(from 0% 0% to 15% 50%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0, 1, 2, 3, 0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+

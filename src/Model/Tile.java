@@ -28,6 +28,11 @@ public class Tile {
         this.busy = false;
     }
 
+    @Override
+    public String toString() {
+        return "Tile{" + color + ", " + shape +'}';
+    }
+
     public String getColor() {
         return color;
     }
