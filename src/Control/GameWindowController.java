@@ -63,6 +63,9 @@ public class GameWindowController {
             this.smartPlayerTiles.clear();
             this.setUpSmartPlayerTiles();
             this.turn = 0;
+            this.humanPoints.setText(String.valueOf(0));
+            this.basicPoints.setText(String.valueOf(0));
+            this.smartPoints.setText(String.valueOf(0));
         } else {
             this.board = new Board(this.gridPane);
             this.board.newBoard();

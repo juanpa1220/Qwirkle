@@ -150,7 +150,6 @@ public class BasicSolver {
             return 0;
         }
 
-
         if (isShape && isColor) {
 //            System.out.println("es los dos");
             points = colors.size() + solution.size();
@@ -184,12 +183,10 @@ public class BasicSolver {
                 }
             }
         }
-
 //        System.out.println("------test final   origin: " + origen.toString());
 //        System.out.println(colors);
 //        System.out.println(shapes);
 //        System.out.println("points : " + points + "\n---------\n\n");
-
         return points;
     }
 
