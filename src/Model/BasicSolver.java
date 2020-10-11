@@ -1,162 +1,327 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BasicSolver {
-    private final Board board;
+    private final ArrayList<Tile> board;
+    private final ArrayList<ArrayList<Tile>> solutions = new ArrayList<>();
+    private int maxPoints = 0;
 
     public BasicSolver(Board board) {
-        this.board = board;
+        this.board = new ArrayList<>();
+        for (Tile tile : board.getBoard()) {
+            this.board.add(new Tile(tile.getColor(), tile.getShape(), tile.getRow(), tile.getCol(), tile.getIndex(), tile.isBusy()));
+        }
     }
 
-    public void permute(ArrayList<Tile> hand){
-        this.permuteAux(hand, 0, this.getPossiblePositions(), new ArrayList<>());
+    public ArrayList<Tile> solve(ArrayList<Tile> hand) {
+        this.solveAux(hand, 0, this.board, 0, new ArrayList<>(), null);
+//        System.out.println("------------------------AQUI");
+//        for (int i = 0; i < this.solutions.size(); i++) {
+//            System.out.println("solution" + i + ": " + this.solutions.get(i).toString());
+//        }
+        if (solutions.isEmpty()) {
+            return new ArrayList<>();
+        } else {
+            int rdNum = new Random().nextInt(this.solutions.size());
+            return this.solutions.get(rdNum);
+        }
     }
 
-    public void permuteAux(ArrayList<Tile> hand, int k, ArrayList<Tile> possiblePositions, ArrayList<Tile> solutions) {
+    public void solveAux(ArrayList<Tile> hand, int k, ArrayList<Tile> board, int j, ArrayList<Tile> solution, Tile origen) {
         for (int i = k; i < hand.size(); i++) {
-            if (isCompatible(hand.get(i), this.board.getBoard()) && !solutions.contains(hand.get(i))) {
-                solutions.add(hand.get(i));
-            }
-
             java.util.Collections.swap(hand, i, k);
-            permuteAux(hand, k + 1, possiblePositions, solutions);
+            solveAux(hand, k + 1, board, j, solution, origen);
             java.util.Collections.swap(hand, k, i);
         }
-
         if (k == hand.size() - 1) {
-            System.out.println("hand: " + java.util.Arrays.toString(hand.toArray()));
-            System.out.println("solution: " + java.util.Arrays.toString(solutions.toArray()) + "\n");
+            if (j == hand.size() - 1) {
+                if (origen != null && this.filterSolution(solution, board, origen) > 0) {
+                    int temPoints = this.filterSolution(solution, board, origen);
+                    if (solution.size() == 0) {
+                        this.solutions.add(0, new ArrayList<>(solution));
+                        this.maxPoints = temPoints;
+                    } else if (temPoints > this.maxPoints) {
+                        this.solutions.clear();
+                        this.solutions.add(0, new ArrayList<>(solution));
+                        this.maxPoints = temPoints;
+                    } else if (temPoints == this.maxPoints) {
+                        this.solutions.add(0, new ArrayList<>(solution));
+                    }
+                }
+            }
+            for (int i = j; i < hand.size(); i++) {
+                for (Tile origenTile : this.getPossibleOrigenTiles(hand.get(i), board)) {
+                    ArrayList<Tile> origenAdjacents = this.getAdjacents(origenTile, board);
+
+                    for (Tile origenAdjacent : origenAdjacents) {
+                        Tile temTile = new Tile(hand.get(i).getColor(), hand.get(i).getShape(), origenAdjacent.getRow(), origenAdjacent.getCol(), origenAdjacent.getIndex(), true);
+                        solution.add(temTile);
+                        board.get(origenAdjacent.getIndex()).setBusy(true);
+                        board.get(origenAdjacent.getIndex()).setColor(hand.get(i).getColor());
+                        board.get(origenAdjacent.getIndex()).setShape(hand.get(i).getShape());
+                        if (solution.size() == 1) {
+                            Tile temOrigen = new Tile(origenTile.getColor(), origenTile.getShape(), origenTile.getRow(), origenTile.getCol(), origenTile.getIndex(), true);
+                            solveAux(hand, k, board, j + 1, solution, temOrigen);
+                        } else {
+                            solveAux(hand, k, board, j + 1, solution, origen);
+                        }
+                        solution.remove(temTile);
+                        board.get(origenAdjacent.getIndex()).setBusy(false);
+                        board.get(origenAdjacent.getIndex()).setColor("");
+                        board.get(origenAdjacent.getIndex()).setShape("");
+                    }
+                }
+                j++;
+            }
         }
     }
 
-
-    public void Solver(ArrayList<Tile> hand) {
-        SolverAux(this.getPossiblePositions(), hand, new ArrayList<>(), 0);
+    public int getMaxPoints() {
+        return maxPoints;
     }
 
-
-    private ArrayList<Tile> SolverAux(ArrayList<Tile> possiblePositions, ArrayList<Tile> hand, ArrayList<Tile> solution, int points) {
-        System.out.println("hand length: " + hand.size());
-        if (hand.size() == 0) {
-            // revisar que sea la mejor solucion
-            System.out.println("solution:" + solution);
-            return solution;
+    private int filterSolution(ArrayList<Tile> solution, ArrayList<Tile> board, Tile origen) {
+        if (!filterSolutionAux(solution, board, origen)) {
+            return 0;
         }
-        for (Tile handTile : hand) {
-            System.out.println(handTile.getShape() + handTile.getColor());
+        ArrayList<String> colors = new ArrayList<>();
+        ArrayList<String> shapes = new ArrayList<>();
+        Tile temTile = origen;
+        boolean isColor = true;
+        boolean isShape = true;
+        boolean flag = true;
+        int direction = 1;
+        int points = 0;
 
-            int unCompatible = 0;
-            if (isCompatible(handTile, possiblePositions)) {
-                System.out.println("compatible: " + handTile.getShape() + handTile.getColor());
+        colors.add(origen.getColor());
+        shapes.add(origen.getShape());
 
-                Tile temTile = this.getPossiblePositions(handTile, possiblePositions).get(0);
-                temTile.setColor(handTile.getColor());
-                temTile.setShape(handTile.getShape());
-                solution.add(temTile);
-                possiblePositions.remove(0);
-                return this.SolverAux(possiblePositions, hand, solution, points);
+        while (true) {
+            ArrayList<Tile> temAdjacents = this.getBusyAdjacents(board.get(temTile.getIndex()), board);
+//            System.out.println("adjacents: " + java.util.Arrays.toString(temAdjacents.toArray()));
+            if (flag) {
+                if (temAdjacents.get(0) != null && solution.get(0).toString().equals(temAdjacents.get(0).toString())) {
+                    direction = 1;
+                } else if (temAdjacents.get(1) != null && solution.get(0).toString().equals(temAdjacents.get(1).toString())) {
+                    direction = 0;
+                } else if (temAdjacents.get(2) != null && solution.get(0).toString().equals(temAdjacents.get(2).toString())) {
+                    direction = 3;
+                } else if (temAdjacents.get(3) != null && solution.get(0).toString().equals(temAdjacents.get(3).toString())) {
+                    direction = 2;
+                }
+                flag = false;
+            }
+            Tile temTile2 = temAdjacents.get(direction);
+            if (temTile2 != null) {
+                colors.add(temTile2.getColor());
+                shapes.add(temTile2.getShape());
+                temTile = temTile2;
 
-//                for (Tile solutionTile : this.getPossiblePositions(handTile, possiblePositions)) {
-//                    solutionTile.setColor(handTile.getColor());
-//                    solutionTile.setShape(handTile.getShape());
-//                    solution.add(solutionTile);
-//                    possiblePositions.remove(solutionTile);
-//                    return this.SolverAux(possiblePositions, hand, solution, points);
-//                }
+//                System.out.println(colors);
+//                System.out.println(shapes);
             } else {
-                unCompatible += 1;
-                if (unCompatible == hand.size()) {
-                    System.out.println("solution en el else:" + solution);
-                    return this.SolverAux(possiblePositions, new ArrayList<>(), solution, points);
-                } else {
-                    hand.remove(handTile);// intercambia el tile
-//                        hand.add(handTile);
-                    return this.SolverAux(possiblePositions, hand, solution, points);
+                break;
+            }
+        }
+
+//        System.out.println("------test   origin: " + origen.toString());
+//        System.out.println(colors);
+//        System.out.println(shapes);
+//        System.out.println(solution);
+
+        for (int i = 1; i < colors.size(); i++) {
+            if (!colors.get(0).equals(colors.get(i))) {
+                isColor = false;
+                break;
+            }
+        }
+
+        for (int i = 1; i < shapes.size(); i++) {
+            if (!shapes.get(0).equals(shapes.get(i))) {
+                isShape = false;
+                break;
+            }
+        }
+
+        if (!isColor && !isShape) {
+//            System.out.println("se fue 1\n");
+            return 0;
+        }
+
+
+        if (isShape && isColor) {
+//            System.out.println("es los dos");
+            points = colors.size() + solution.size();
+            if (points == 6) {
+                points += 6;
+            }
+        } else {
+            if (isShape) {
+                for (Tile tile : solution) {
+                    if (colors.contains(tile.getColor())) {
+//                        System.out.println("se fue 2\n");
+                        return 0;
+                    }
+                }
+                points = colors.size() + solution.size();
+                if (points == 6) {
+                    points += 6;
+                }
+            }
+
+            if (isColor) {
+                for (Tile tile : solution) {
+                    if (shapes.contains(tile.getShape())) {
+//                        System.out.println("se fue 3\n");
+                        return 0;
+                    }
+                }
+                points = shapes.size() + solution.size();
+                if (points == 6) {
+                    points += 6;
                 }
             }
         }
 
-        System.out.println("last return: " + solution);
-        return solution;
+//        System.out.println("------test final   origin: " + origen.toString());
+//        System.out.println(colors);
+//        System.out.println(shapes);
+//        System.out.println("points : " + points + "\n---------\n\n");
+
+        return points;
     }
 
+    private boolean filterSolutionAux(ArrayList<Tile> solution, ArrayList<Tile> board, Tile origen) {
+        if (this.getNumBusyAdjacents(board.get(solution.get(0).getIndex()), board) > 2 ||
+                (solution.size() > 1 && this.getNumBusyAdjacents(board.get(solution.get(solution.size() - 1).getIndex()), board) > 1)) {
+            return false;
+        }
 
-    /**
-     * @param tile
-     * @return
-     */
-    public boolean isCompatible(Tile tile, ArrayList<Tile> board) {
-        for (Tile boardTile : board) {
-            if (boardTile.isBusy() && boardTile.getColor().equals(tile.getColor())) {
-                return true;
-            } else if (boardTile.isBusy() && boardTile.getShape().equals(tile.getShape())) {
-                return true;
+        int temRow = origen.getRow();
+        int temCol = origen.getCol();
+        String temColor = origen.getColor();
+        String temShape = origen.getShape();
+        boolean isRow = true;
+        boolean isCol = true;
+        boolean isColor = true;
+        boolean isShape = true;
+        for (Tile tile : solution) {
+            if (tile.getRow() != temRow) {
+                isRow = false;
+            }
+            if (tile.getCol() != temCol) {
+                isCol = false;
+            }
+            if (!tile.getColor().equals(temColor)) {
+                isColor = false;
+            }
+            if (!tile.getShape().equals(temShape)) {
+                isShape = false;
             }
         }
-        return false;
+
+        if (solution.size() > 1) {
+            if (!isCol) {
+                int col = solution.get(0).getCol();
+                for (int i = 1; i < solution.size(); i++) {
+                    if (solution.get(i).getCol() + 1 != col && solution.get(i).getCol() - 1 != col) {
+                        return false;
+                    }
+                    col = solution.get(i).getCol();
+                }
+            }
+            if (!isRow) {
+                int row = solution.get(0).getRow();
+                for (int i = 1; i < solution.size(); i++) {
+                    if (solution.get(i).getRow() + 1 != row && solution.get(i).getRow() - 1 != row) {
+                        return false;
+                    }
+                    row = solution.get(i).getRow();
+                }
+            }
+        }
+
+        return (isRow || isCol) && (isColor || isShape);
     }
 
-
-    /**
-     * @param tile
-     * @return
-     */
-    public ArrayList<Tile> getPossiblePositions(Tile tile, ArrayList<Tile> board) {
-        ArrayList<Tile> temPossiblePositions = new ArrayList<>();
+    private ArrayList<Tile> getPossibleOrigenTiles(Tile tile, ArrayList<Tile> board) {
+        ArrayList<Tile> temPossibleOrigenTiles = new ArrayList<>();
         for (Tile possibleTile : board) {
-            if (possibleTile.isBusy()) {
-                for (Tile possibleTileAux : this.getAdjacents(possibleTile)) {
-                    if (
-                            !temPossiblePositions.contains(possibleTileAux) &&
-                                    (possibleTile.getShape().equals(tile.getShape()) ||
-                                            possibleTile.getColor().equals(tile.getColor()))
-                    ) {
-                        temPossiblePositions.add(possibleTileAux);
-                    }
-                }
+            if (possibleTile.isBusy() &&
+                    (possibleTile.getShape().equals(tile.getShape()) || possibleTile.getColor().equals(tile.getColor())) &&
+                    !(possibleTile.getShape().equals(tile.getShape()) && possibleTile.getColor().equals(tile.getColor()))) {
+                temPossibleOrigenTiles.add(possibleTile);
             }
         }
-        return temPossiblePositions;
+        return temPossibleOrigenTiles;
     }
 
-
-    /**
-     * @return
-     */
-    public ArrayList<Tile> getPossiblePositions() {
-        ArrayList<Tile> temPossiblePositions = new ArrayList<>();
-        for (Tile tile : this.board.getBoard()) {
-            if (tile.isBusy()) {
-                for (Tile tile1 : this.getAdjacents(tile)) {
-                    if (!temPossiblePositions.contains(tile1)) {
-                        temPossiblePositions.add(tile1);
-                    }
-                }
-            }
-        }
-        return temPossiblePositions;
-    }
-
-
-    /**
-     * @param tile current tile
-     * @return array list of adjacents non busy tiles
-     */
-    private ArrayList<Tile> getAdjacents(Tile tile) {
+    private ArrayList<Tile> getAdjacents(Tile tile, ArrayList<Tile> board) {
         ArrayList<Tile> temAdjacents = new ArrayList<>();
-        if (tile.getRow() + 1 < 16 && !board.getTile(tile.getIndex() + 1).isBusy()) {
-            temAdjacents.add(board.getTile(tile.getIndex() + 1));
+
+        if (tile.getCol() - 1 >= 0 && !board.get(tile.getIndex() - 1).isBusy()) {
+            temAdjacents.add(board.get(tile.getIndex() - 1));
         }
-        if (tile.getRow() - 1 >= 0 && !board.getTile(tile.getIndex() - 1).isBusy()) {
-            temAdjacents.add(board.getTile(tile.getIndex() - 1));
+        if (tile.getCol() + 1 < 16 && !board.get(tile.getIndex() + 1).isBusy()) {
+            temAdjacents.add(board.get(tile.getIndex() + 1));
         }
-        if (tile.getCol() + 1 < 16 && !board.getTile(tile.getIndex() + 16).isBusy()) {
-            temAdjacents.add(board.getTile(tile.getIndex() + 16));
+        if (tile.getRow() - 1 >= 0 && !board.get(tile.getIndex() - 16).isBusy()) {
+            temAdjacents.add(board.get(tile.getIndex() - 16));
         }
-        if (tile.getCol() - 1 >= 0 && !board.getTile(tile.getIndex() - 16).isBusy()) {
-            temAdjacents.add(board.getTile(tile.getIndex() - 16));
+        if (tile.getRow() + 1 < 16 && !board.get(tile.getIndex() + 16).isBusy()) {
+            temAdjacents.add(board.get(tile.getIndex() + 16));
         }
+
         return temAdjacents;
+    }
+
+
+    private ArrayList<Tile> getBusyAdjacents(Tile tile, ArrayList<Tile> board) {
+        ArrayList<Tile> temAdjacents = new ArrayList<>();
+        if (tile.getCol() - 1 >= 0 && board.get(tile.getIndex() - 1).isBusy()) { // izquierda
+            temAdjacents.add(board.get(tile.getIndex() - 1));
+        } else {
+            temAdjacents.add(null);
+        }
+
+        if (tile.getCol() + 1 < 16 && board.get(tile.getIndex() + 1).isBusy()) { // derecha
+            temAdjacents.add(board.get(tile.getIndex() + 1));
+        } else {
+            temAdjacents.add(null);
+        }
+
+        if (tile.getRow() - 1 >= 0 && board.get(tile.getIndex() - 16).isBusy()) { // arriba
+            temAdjacents.add(board.get(tile.getIndex() - 16));
+        } else {
+            temAdjacents.add(null);
+        }
+
+        if (tile.getRow() + 1 < 16 && board.get(tile.getIndex() + 16).isBusy()) { // abajo
+            temAdjacents.add(board.get(tile.getIndex() + 16));
+        } else {
+            temAdjacents.add(null);
+        }
+
+        return temAdjacents;
+    }
+
+    private int getNumBusyAdjacents(Tile tile, ArrayList<Tile> board) {
+        int count = 0;
+        if (tile.getCol() - 1 >= 0 && board.get(tile.getIndex() - 1).isBusy()) {
+            count++;
+        }
+        if (tile.getCol() + 1 < 16 && board.get(tile.getIndex() + 1).isBusy()) {
+            count++;
+        }
+        if (tile.getRow() - 1 >= 0 && board.get(tile.getIndex() - 16).isBusy()) {
+            count++;
+        }
+
+        if (tile.getRow() + 1 < 16 && board.get(tile.getIndex() + 16).isBusy()) {
+            count++;
+        }
+        return count;
     }
 }

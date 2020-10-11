@@ -17,8 +17,8 @@ public class Board {
 
     public void newBoard() {
         int index = 0;
-        for (int col = 0; col < 16; col++) {
-            for (int row = 0; row < 16; row++) {
+        for (int row = 0; row < 16; row++) {
+            for (int col = 0; col < 16; col++) {
                 Button temButton = new Button();
                 temButton.setMaxHeight(35);
                 temButton.setMinHeight(35);
@@ -29,7 +29,7 @@ public class Board {
                 temButton.setStyle("-fx-background-radius: 0;");
                 temButton.setId(String.valueOf(index));
                 temButton.setOnAction(this::selectedTile);
-                gridPane.add(temButton, row, col);
+                gridPane.add(temButton, col, row);
                 this.board.add(new Tile(temButton, row, col, index));
                 index++;
             }
@@ -53,7 +53,6 @@ public class Board {
     public ArrayList<Tile> getBoard() {
         return board;
     }
-
 
     public void restartBoard() {
         this.board.clear();

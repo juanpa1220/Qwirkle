@@ -5,260 +5,230 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="760.0" maxWidth="760.0" minHeight="760.0" minWidth="760.0" prefHeight="760.0" prefWidth="760.0"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Control.GameWindowController">
+<BorderPane maxHeight="760.0" maxWidth="760.0" minHeight="760.0" minWidth="760.0" prefHeight="760.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.GameWindowController">
     <center>
-        <GridPane fx:id="gridPane" focusTraversable="true" maxHeight="560.0" maxWidth="560.0" minHeight="560.0"
-                  minWidth="560.0" prefHeight="560.0" prefWidth="560.0" style="-fx-background-color: #48686d;"
-                  stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
+        <GridPane fx:id="gridPane" focusTraversable="true" maxHeight="560.0" maxWidth="560.0" minHeight="560.0" minWidth="560.0" prefHeight="560.0" prefWidth="560.0" style="-fx-background-color: #48686d;" stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
     </center>
     <bottom>
-        <HBox maxHeight="100.0" maxWidth="520.0" minHeight="100.0" minWidth="520.0" prefHeight="100.0" prefWidth="520.0"
-              stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
+        <HBox maxHeight="100.0" maxWidth="520.0" minHeight="100.0" minWidth="520.0" prefHeight="100.0" prefWidth="520.0" stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
             <BorderPane.margin>
-                <Insets left="100.0" right="100.0"/>
+                <Insets left="100.0" right="100.0" />
             </BorderPane.margin>
             <padding>
-                <Insets top="5.0"/>
+                <Insets top="5.0" />
             </padding>
-            <Button fx:id="tile1" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="tile1" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
                 <HBox.margin>
-                    <Insets right="30.0" top="20.0"/>
+                    <Insets right="30.0" top="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="tile2" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="tile2" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
                 <HBox.margin>
-                    <Insets right="30.0" top="20.0"/>
+                    <Insets right="30.0" top="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="tile3" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="tile3" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
                 <HBox.margin>
-                    <Insets right="30.0" top="20.0"/>
+                    <Insets right="30.0" top="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="tile4" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="tile4" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
                 <HBox.margin>
-                    <Insets right="30.0" top="20.0"/>
+                    <Insets right="30.0" top="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="tile5" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="tile5" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
                 <HBox.margin>
-                    <Insets right="30.0" top="20.0"/>
+                    <Insets right="30.0" top="20.0" />
                 </HBox.margin>
             </Button>
-            <Button fx:id="tile6" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="tile6" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#selectedTile" prefHeight="40.0" prefWidth="40.0">
                 <HBox.margin>
-                    <Insets right="40.0" top="20.0"/>
+                    <Insets right="40.0" top="20.0" />
                 </HBox.margin>
             </Button>
-            <Button id="play" fx:id="playButton" disable="true" maxHeight="40.0" maxWidth="90.0" minHeight="40.0"
-                    minWidth="90.0" mnemonicParsing="false" onAction="#play" prefHeight="40.0" prefWidth="90.0"
-                    text="JUGAR">
+            <Button id="play" fx:id="playButton" disable="true" maxHeight="40.0" maxWidth="90.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" onAction="#play" prefHeight="40.0" prefWidth="90.0" text="JUGAR">
                 <HBox.margin>
-                    <Insets top="20.0"/>
+                    <Insets top="20.0" />
                 </HBox.margin>
             </Button>
 
         </HBox>
     </bottom>
     <left>
-        <VBox maxHeight="450.0" maxWidth="100.0" minHeight="450.0" minWidth="100.0" prefHeight="450.0" prefWidth="100.0"
-              stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
+        <VBox maxHeight="450.0" maxWidth="100.0" minHeight="450.0" minWidth="100.0" prefHeight="450.0" prefWidth="100.0" stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
             <Label text="Inteligente" textAlignment="CENTER">
                 <VBox.margin>
-                    <Insets left="10.0" right="10.0" top="10.0"/>
+                    <Insets left="10.0" right="10.0" top="10.0" />
                 </VBox.margin>
                 <font>
-                    <Font name="Times New Roman" size="18.0"/>
+                    <Font name="Times New Roman" size="18.0" />
                 </font>
             </Label>
-            <Button fx:id="sTile1" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="sTile1" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0" top="20.0"/>
+                    <Insets bottom="30.0" left="30.0" top="20.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="sTile2" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="sTile2" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="sTile3" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="sTile3" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="sTile4" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="sTile4" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="sTile5" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="sTile5" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="sTile6" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="sTile6" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="30.0"/>
+                    <Insets bottom="10.0" left="30.0" />
                 </VBox.margin>
             </Button>
         </VBox>
     </left>
     <right>
-        <VBox maxHeight="450.0" maxWidth="100.0" minHeight="450.0" minWidth="100.0" prefHeight="450.0" prefWidth="100.0"
-              stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
+        <VBox maxHeight="450.0" maxWidth="100.0" minHeight="450.0" minWidth="100.0" prefHeight="450.0" prefWidth="100.0" stylesheets="@StyledButtons.css" BorderPane.alignment="CENTER">
             <Label text="Básico" textAlignment="CENTER">
                 <VBox.margin>
-                    <Insets left="25.0" right="25.0" top="10.0"/>
+                    <Insets left="25.0" right="25.0" top="10.0" />
                 </VBox.margin>
                 <font>
-                    <Font name="Times New Roman" size="18.0"/>
+                    <Font name="Times New Roman" size="18.0" />
                 </font>
             </Label>
-            <Button fx:id="bTile1" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="bTile1" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0" top="20.0"/>
+                    <Insets bottom="30.0" left="30.0" top="20.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="bTile2" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="bTile2" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="bTile3" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="bTile3" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="bTile4" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="bTile4" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="bTile5" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="bTile5" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="30.0" left="30.0"/>
+                    <Insets bottom="30.0" left="30.0" />
                 </VBox.margin>
             </Button>
-            <Button fx:id="bTile6" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0"
-                    mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
+            <Button fx:id="bTile6" disable="true" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0">
                 <VBox.margin>
-                    <Insets bottom="10.0" left="30.0"/>
+                    <Insets bottom="10.0" left="30.0" />
                 </VBox.margin>
             </Button>
         </VBox>
     </right>
     <top>
-        <VBox maxHeight="100.0" maxWidth="560.0" minHeight="100.0" minWidth="560.0" prefHeight="100.0" prefWidth="560.0"
-              BorderPane.alignment="CENTER">
+        <VBox maxHeight="100.0" maxWidth="560.0" minHeight="100.0" minWidth="560.0" prefHeight="100.0" prefWidth="560.0" BorderPane.alignment="CENTER">
             <BorderPane.margin>
-                <Insets/>
+                <Insets />
             </BorderPane.margin>
             <Label contentDisplay="CENTER" text="Qwirkle">
                 <font>
-                    <Font name="Times New Roman" size="48.0"/>
+                    <Font name="Times New Roman" size="48.0" />
                 </font>
                 <VBox.margin>
-                    <Insets left="200.0" right="200.0"/>
+                    <Insets left="200.0" right="200.0" />
                 </VBox.margin>
             </Label>
-            <HBox maxHeight="30.0" maxWidth="560.0" minHeight="30.0" minWidth="560.0" prefHeight="30.0"
-                  prefWidth="560.0">
+            <HBox maxHeight="30.0" maxWidth="560.0" minHeight="30.0" minWidth="560.0" prefHeight="30.0" prefWidth="560.0">
                 <VBox.margin>
-                    <Insets top="10.0"/>
+                    <Insets top="10.0" />
                 </VBox.margin>
                 <opaqueInsets>
-                    <Insets/>
+                    <Insets />
                 </opaqueInsets>
-                <Button id="windows7" fx:id="startGame" mnemonicParsing="false" onAction="#newGame" prefHeight="30.0"
-                        stylesheets="@StyledButtons.css" text="Iniciar Juego">
+                <Button id="windows7" fx:id="startGame" mnemonicParsing="false" onAction="#newGame" prefHeight="30.0" stylesheets="@StyledButtons.css" text="Iniciar Juego">
                     <HBox.margin>
-                        <Insets right="50.0"/>
+                        <Insets right="50.0" />
                     </HBox.margin>
                 </Button>
                 <Label prefHeight="30.0" text="Básico: ">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Label>
-                <Label prefHeight="30.0" text="0">
+                <Label fx:id="basicPoints" prefHeight="30.0" text="0">
                     <HBox.margin>
-                        <Insets right="40.0"/>
+                        <Insets right="40.0" />
                     </HBox.margin>
                 </Label>
                 <Label prefHeight="30.0" text="Inteligente: ">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Label>
-                <Label prefHeight="30.0" text="0">
+                <Label fx:id="smartPoints" prefHeight="30.0" text="0">
                     <HBox.margin>
-                        <Insets right="40.0"/>
+                        <Insets right="40.0" />
                     </HBox.margin>
                 </Label>
                 <Label prefHeight="30.0" text="Humano: ">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Label>
-                <Label prefHeight="30.0" text="0">
+                <Label fx:id="humanPoints" prefHeight="30.0" text="0">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Label>
             </HBox>

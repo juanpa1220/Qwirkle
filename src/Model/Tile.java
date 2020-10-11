@@ -28,9 +28,18 @@ public class Tile {
         this.busy = false;
     }
 
+    public Tile(String color, String shape, int row, int col, int index, boolean busy) {
+        this.color = color;
+        this.shape = shape;
+        this.row = row;
+        this.col = col;
+        this.index = index;
+        this.busy = busy;
+    }
+
     @Override
     public String toString() {
-        return "Tile{" + color + ", " + shape +'}';
+        return "Tile{" + color + ", " + shape + ", (" + row + "," + col + ")" + '}';
     }
 
     public String getColor() {
