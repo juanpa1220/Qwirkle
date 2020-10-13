@@ -149,40 +149,65 @@ public class BasicSolver {
 //            System.out.println("se fue 1\n");
             return 0;
         }
+        boolean isBoth = false;
 
-        if (isShape && isColor) {
-//            System.out.println("es los dos");
-            points = colors.size() + solution.size();
-            if (points == 6) {
-                points += 6;
-            }
-        } else {
-            if (isShape) {
-                for (Tile tile : solution) {
-                    if (colors.contains(tile.getColor())) {
+        if (isShape) {
+            for (Tile tile : solution) {
+                if (colors.contains(tile.getColor())) {
+                    if (isColor) {
+                        isBoth = true;
+                        isShape = false;
+                    } else {
 //                        System.out.println("se fue 2\n");
                         return 0;
                     }
+
                 }
+            }
+            if (!isBoth) {
                 points = colors.size() + solution.size();
                 if (points == 6) {
                     points += 6;
                 }
             }
+            isBoth = false;
+        }
 
-            if (isColor) {
-                for (Tile tile : solution) {
-                    if (shapes.contains(tile.getShape())) {
+        if (isColor) {
+            for (Tile tile : solution) {
+                if (shapes.contains(tile.getShape())) {
+                    if (isShape) {
+                        isBoth = true;
+                        isColor = false;
+                    } else {
 //                        System.out.println("se fue 3\n");
                         return 0;
                     }
+
                 }
+            }
+            if (!isBoth) {
                 points = shapes.size() + solution.size();
                 if (points == 6) {
                     points += 6;
                 }
             }
         }
+
+        if (!isBoth && solution.size() > 1) {
+            for (int i = 1; i < solution.size(); i++) {
+                if (isShape && solution.get(0).getColor().equals(solution.get(i).getColor())) {
+//                    System.out.println("se fue 4\n");
+                    return 0;
+                }
+                if ( isColor && solution.get(0).getShape().equals(solution.get(i).getShape())){
+//                    System.out.println("se fue 5\n");
+                    return 0;
+                }
+            }
+        }
+
+
 //        System.out.println("------test final   origin: " + origen.toString());
 //        System.out.println(colors);
 //        System.out.println(shapes);

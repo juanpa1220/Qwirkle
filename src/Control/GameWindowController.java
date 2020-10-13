@@ -2,6 +2,7 @@ package Control;
 
 import Model.BasicSolver;
 import Model.Board;
+import Model.SmartSolver;
 import Model.Tile;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -66,6 +67,9 @@ public class GameWindowController {
             this.humanPoints.setText(String.valueOf(0));
             this.basicPoints.setText(String.valueOf(0));
             this.smartPoints.setText(String.valueOf(0));
+            this.smartIntPoints = 0;
+            this.humanIntPoints = 0;
+            this.basicIntPoints = 0;
         } else {
             this.board = new Board(this.gridPane);
             this.board.newBoard();
@@ -272,6 +276,18 @@ public class GameWindowController {
             this.turn++;
         } else if (this.turn == 2) {
             // smart solver turn
+            SmartSolver smartSolver = new SmartSolver(this.board);
+            ArrayList<Tile> solution = smartSolver.solve(this.smartPlayerTiles);
+            for (Tile solutionTile : solution) {
+                this.board.getTile(solutionTile.getIndex()).setColor(solutionTile.getColor());
+                this.board.getTile(solutionTile.getIndex()).setShape(solutionTile.getShape());
+                this.board.getTile(solutionTile.getIndex()).setBusy(true);
+            }
+
+            this.smartIntPoints += smartSolver.getMaxPoints();
+            this.smartPoints.setText(String.valueOf(this.smartIntPoints));
+            this.setNewSmartPlayerTiles(solution);
+//            System.out.println(smartSolver.getMaxPoints());
 
             this.tile1.setDisable(false);
             this.tile2.setDisable(false);
@@ -285,48 +301,96 @@ public class GameWindowController {
 
     private void setNewBasicPlayerTiles(ArrayList<Tile> solution) {
         for (Tile tile : solution) {
-            if (tile.getColor().equals(basicPlayerTiles.get(0).getColor()) && tile.getColor().equals(basicPlayerTiles.get(0).getColor())) {
+            if (tile.getColor().equals(basicPlayerTiles.get(0).getColor()) && tile.getShape().equals(basicPlayerTiles.get(0).getShape())) {
                 int rdTile = new Random().nextInt(this.bag.size());
                 this.basicPlayerTiles.set(0, this.bag.get(rdTile));
                 this.bag.remove(rdTile);
 
                 this.bTile1.setText(this.basicPlayerTiles.get(0).getShape());
                 this.bTile1.getStyleClass().set(this.bTile1.getStyleClass().size() - 1, this.basicPlayerTiles.get(0).getColor());
-            } else if (tile.getColor().equals(basicPlayerTiles.get(1).getColor()) && tile.getColor().equals(basicPlayerTiles.get(1).getColor())) {
+            } else if (tile.getColor().equals(basicPlayerTiles.get(1).getColor()) && tile.getShape().equals(basicPlayerTiles.get(1).getShape())) {
                 int rdTile = new Random().nextInt(this.bag.size());
                 this.basicPlayerTiles.set(1, this.bag.get(rdTile));
                 this.bag.remove(rdTile);
 
                 this.bTile2.setText(this.basicPlayerTiles.get(1).getShape());
                 this.bTile2.getStyleClass().set(this.bTile2.getStyleClass().size() - 1, this.basicPlayerTiles.get(1).getColor());
-            } else if (tile.getColor().equals(basicPlayerTiles.get(2).getColor()) && tile.getColor().equals(basicPlayerTiles.get(2).getColor())) {
+            } else if (tile.getColor().equals(basicPlayerTiles.get(2).getColor()) && tile.getShape().equals(basicPlayerTiles.get(2).getShape())) {
                 int rdTile = new Random().nextInt(this.bag.size());
                 this.basicPlayerTiles.set(2, this.bag.get(rdTile));
                 this.bag.remove(rdTile);
 
                 this.bTile3.setText(this.basicPlayerTiles.get(2).getShape());
                 this.bTile3.getStyleClass().set(this.bTile3.getStyleClass().size() - 1, this.basicPlayerTiles.get(2).getColor());
-            } else if (tile.getColor().equals(basicPlayerTiles.get(3).getColor()) && tile.getColor().equals(basicPlayerTiles.get(3).getColor())) {
+            } else if (tile.getColor().equals(basicPlayerTiles.get(3).getColor()) && tile.getShape().equals(basicPlayerTiles.get(3).getShape())) {
                 int rdTile = new Random().nextInt(this.bag.size());
                 this.basicPlayerTiles.set(3, this.bag.get(rdTile));
                 this.bag.remove(rdTile);
 
                 this.bTile4.setText(this.basicPlayerTiles.get(3).getShape());
                 this.bTile4.getStyleClass().set(this.bTile4.getStyleClass().size() - 1, this.basicPlayerTiles.get(3).getColor());
-            } else if (tile.getColor().equals(basicPlayerTiles.get(4).getColor()) && tile.getColor().equals(basicPlayerTiles.get(4).getColor())) {
+            } else if (tile.getColor().equals(basicPlayerTiles.get(4).getColor()) && tile.getShape().equals(basicPlayerTiles.get(4).getShape())) {
                 int rdTile = new Random().nextInt(this.bag.size());
                 this.basicPlayerTiles.set(4, this.bag.get(rdTile));
                 this.bag.remove(rdTile);
 
                 this.bTile5.setText(this.basicPlayerTiles.get(4).getShape());
                 this.bTile5.getStyleClass().set(this.bTile5.getStyleClass().size() - 1, this.basicPlayerTiles.get(4).getColor());
-            } else if (tile.getColor().equals(basicPlayerTiles.get(5).getColor()) && tile.getColor().equals(basicPlayerTiles.get(5).getColor())) {
+            } else if (tile.getColor().equals(basicPlayerTiles.get(5).getColor()) && tile.getShape().equals(basicPlayerTiles.get(5).getShape())) {
                 int rdTile = new Random().nextInt(this.bag.size());
                 this.basicPlayerTiles.set(5, this.bag.get(rdTile));
                 this.bag.remove(rdTile);
 
                 this.bTile6.setText(this.basicPlayerTiles.get(5).getShape());
                 this.bTile6.getStyleClass().set(this.bTile6.getStyleClass().size() - 1, this.basicPlayerTiles.get(5).getColor());
+            }
+        }
+    }
+
+    private void setNewSmartPlayerTiles(ArrayList<Tile> solution) {
+        for (Tile tile : solution) {
+            if (tile.getColor().equals(smartPlayerTiles.get(0).getColor()) && tile.getShape().equals(smartPlayerTiles.get(0).getShape())) {
+                int rdTile = new Random().nextInt(this.bag.size());
+                this.smartPlayerTiles.set(0, this.bag.get(rdTile));
+                this.bag.remove(rdTile);
+
+                this.sTile1.setText(this.smartPlayerTiles.get(0).getShape());
+                this.sTile1.getStyleClass().set(this.sTile1.getStyleClass().size() - 1, this.smartPlayerTiles.get(0).getColor());
+            } else if (tile.getColor().equals(smartPlayerTiles.get(1).getColor()) && tile.getShape().equals(smartPlayerTiles.get(1).getShape())) {
+                int rdTile = new Random().nextInt(this.bag.size());
+                this.smartPlayerTiles.set(1, this.bag.get(rdTile));
+                this.bag.remove(rdTile);
+
+                this.sTile2.setText(this.smartPlayerTiles.get(1).getShape());
+                this.sTile2.getStyleClass().set(this.sTile2.getStyleClass().size() - 1, this.smartPlayerTiles.get(1).getColor());
+            } else if (tile.getColor().equals(smartPlayerTiles.get(2).getColor()) && tile.getShape().equals(smartPlayerTiles.get(2).getShape())) {
+                int rdTile = new Random().nextInt(this.bag.size());
+                this.smartPlayerTiles.set(2, this.bag.get(rdTile));
+                this.bag.remove(rdTile);
+
+                this.sTile3.setText(this.smartPlayerTiles.get(2).getShape());
+                this.sTile3.getStyleClass().set(this.sTile3.getStyleClass().size() - 1, this.smartPlayerTiles.get(2).getColor());
+            } else if (tile.getColor().equals(smartPlayerTiles.get(3).getColor()) && tile.getShape().equals(smartPlayerTiles.get(3).getShape())) {
+                int rdTile = new Random().nextInt(this.bag.size());
+                this.smartPlayerTiles.set(3, this.bag.get(rdTile));
+                this.bag.remove(rdTile);
+
+                this.sTile4.setText(this.smartPlayerTiles.get(3).getShape());
+                this.sTile4.getStyleClass().set(this.sTile4.getStyleClass().size() - 1, this.smartPlayerTiles.get(3).getColor());
+            } else if (tile.getColor().equals(smartPlayerTiles.get(4).getColor()) && tile.getShape().equals(smartPlayerTiles.get(4).getShape())) {
+                int rdTile = new Random().nextInt(this.bag.size());
+                this.smartPlayerTiles.set(4, this.bag.get(rdTile));
+                this.bag.remove(rdTile);
+
+                this.sTile5.setText(this.smartPlayerTiles.get(4).getShape());
+                this.sTile5.getStyleClass().set(this.sTile5.getStyleClass().size() - 1, this.smartPlayerTiles.get(4).getColor());
+            } else if (tile.getColor().equals(smartPlayerTiles.get(5).getColor()) && tile.getShape().equals(smartPlayerTiles.get(5).getShape())) {
+                int rdTile = new Random().nextInt(this.bag.size());
+                this.smartPlayerTiles.set(5, this.bag.get(rdTile));
+                this.bag.remove(rdTile);
+
+                this.sTile6.setText(this.smartPlayerTiles.get(5).getShape());
+                this.sTile6.getStyleClass().set(this.sTile6.getStyleClass().size() - 1, this.smartPlayerTiles.get(5).getColor());
             }
         }
     }
