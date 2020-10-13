@@ -245,6 +245,10 @@ public class SmartSolver {
             }
         }
 
+        if (colors.size() == 4 && solution.size() == 1){
+            return  0;
+        }
+
 //        System.out.println("------test final   origin: " + origen.toString());
 //        System.out.println(colors);
 //        System.out.println(shapes);

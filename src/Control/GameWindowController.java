@@ -261,20 +261,6 @@ public class GameWindowController {
             this.tile6.setDisable(true);
             this.turn++;
         } else if (this.turn == 1) {
-            // basic solver turn
-            BasicSolver basicSolver = new BasicSolver(this.board);
-            ArrayList<Tile> solution = basicSolver.solve(this.basicPlayerTiles);
-            for (Tile solutionTile : solution) {
-                this.board.getTile(solutionTile.getIndex()).setColor(solutionTile.getColor());
-                this.board.getTile(solutionTile.getIndex()).setShape(solutionTile.getShape());
-                this.board.getTile(solutionTile.getIndex()).setBusy(true);
-            }
-            this.basicIntPoints += basicSolver.getMaxPoints();
-            this.basicPoints.setText(String.valueOf(this.basicIntPoints));
-            this.setNewBasicPlayerTiles(solution);
-
-            this.turn++;
-        } else if (this.turn == 2) {
             // smart solver turn
             SmartSolver smartSolver = new SmartSolver(this.board);
             ArrayList<Tile> solution = smartSolver.solve(this.smartPlayerTiles);
@@ -288,6 +274,22 @@ public class GameWindowController {
             this.smartPoints.setText(String.valueOf(this.smartIntPoints));
             this.setNewSmartPlayerTiles(solution);
 //            System.out.println(smartSolver.getMaxPoints());
+
+
+            this.turn++;
+        } else if (this.turn == 2) {
+
+            // basic solver turn
+            BasicSolver basicSolver = new BasicSolver(this.board);
+            ArrayList<Tile> solution = basicSolver.solve(this.basicPlayerTiles);
+            for (Tile solutionTile : solution) {
+                this.board.getTile(solutionTile.getIndex()).setColor(solutionTile.getColor());
+                this.board.getTile(solutionTile.getIndex()).setShape(solutionTile.getShape());
+                this.board.getTile(solutionTile.getIndex()).setBusy(true);
+            }
+            this.basicIntPoints += basicSolver.getMaxPoints();
+            this.basicPoints.setText(String.valueOf(this.basicIntPoints));
+            this.setNewBasicPlayerTiles(solution);
 
             this.tile1.setDisable(false);
             this.tile2.setDisable(false);
