@@ -28,7 +28,6 @@ public class BasicSolver {
             return this.solutions.get(rdNum);
         }
     }
-
     public void solveAux(ArrayList<Tile> hand, int k, ArrayList<Tile> board, int j, ArrayList<Tile> solution, Tile origen) {
         for (int i = k; i < hand.size(); i++) {
             java.util.Collections.swap(hand, i, k);

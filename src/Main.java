@@ -19,7 +19,6 @@ public class Main extends Application {
         primaryStage.setMaxWidth(760);
         primaryStage.setMinWidth(760);
         primaryStage.show();
-
     }
 
     public static void main(String[] args) {

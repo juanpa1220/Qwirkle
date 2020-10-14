@@ -263,7 +263,9 @@ public class GameWindowController {
         } else if (this.turn == 1) {
             // smart solver turn
             SmartSolver smartSolver = new SmartSolver(this.board);
+
             ArrayList<Tile> solution = smartSolver.solve(this.smartPlayerTiles);
+            long tiempo1 = System.currentTimeMillis();
             for (Tile solutionTile : solution) {
                 this.board.getTile(solutionTile.getIndex()).setColor(solutionTile.getColor());
                 this.board.getTile(solutionTile.getIndex()).setShape(solutionTile.getShape());
@@ -273,6 +275,8 @@ public class GameWindowController {
             this.smartIntPoints += smartSolver.getMaxPoints();
             this.smartPoints.setText(String.valueOf(this.smartIntPoints));
             this.setNewSmartPlayerTiles(solution);
+            long tiempo2 = System.currentTimeMillis();
+            System.out.println(String.valueOf(tiempo2 - tiempo1));
 //            System.out.println(smartSolver.getMaxPoints());
 
 
